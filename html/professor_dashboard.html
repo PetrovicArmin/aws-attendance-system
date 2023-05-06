@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Professor Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/professor.css">
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" id="title" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" id="logout" href="#">Log out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- My Courses -->
+    <section id="my-courses">
+      <div class="container">
+        <h2 class="section-header">My Courses</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Course ID</th>
+              <th>Course Name</th>
+              <th>ECTS</th>
+              <th>Semester</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row clickable">
+              <td>CS101</td>
+              <td>Introduction to Computer Science</td>
+              <td>6</td>
+              <td>1</td>
+            </tr>
+            <tr class="table-row clickable">
+              <td>CS201</td>
+              <td>Data Structures and Algorithms</td>
+              <td>6</td>
+              <td>3</td>
+            </tr>
+            <tr class="table-row clickable">
+              <td>CS301</td>
+              <td>Database Systems</td>
+              <td>6</td>
+              <td>5</td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary btn-block" id="new_course" data-toggle="modal" data-target="#new-course-modal">
+          Create New Course
+        </button>
+      </div>
+    </section>
+
+    <br><br><br>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+      <div id="snackbar" class="toast align-items-center text-white bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body"></div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModalBtn" class="close">&times;</span>
+        <h2 id="modal_header">Modal Header</h2>
+        <p id="modal_text">Modal content goes here...</p>
+        <div class="modal-body">
+            <!-- Form for creating a new course -->
+            <form>
+              <div class="mb-3">
+                <label for="courseId" class="form-label">Course ID:</label>
+                <input type="text" class="form-control" id="courseId" required>
+              </div>
+              <div class="mb-3">
+                <label for="courseName" class="form-label">Course name:</label>
+                <input type="text" class="form-control" id="courseName" required>
+              </div>
+              <div class="mb-3">
+                <label for="courseECTS" class="form-label">ECTS number:</label>
+                <input type="number" class="form-control" id="courseECTS" required>
+              </div>
+              <div class="mb-3">
+                <label for="courseSemester" class="form-label">Semester number:</label>
+                <input type="number" class="form-control" id="courseSemester" required>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>    
+      </div>
+    </div>
+  <!-- AWS client js -->
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.1372.0.min.js"></script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+
+  <!--My scripts-->
+  <script type="module" src="../scripts/professor_dashboard.js"></script>
+  </body>
+</html>
